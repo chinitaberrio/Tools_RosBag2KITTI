@@ -38,8 +38,9 @@ void pcd2bin (string &in_file, string& out_file)
             << endl;
   for (size_t i = 0; i < cloud->points.size (); ++i)
   {
-  	bin_file.write((char*)&cloud->points[i].x,3*sizeof(float)); 
-    bin_file.write((char*)&cloud->points[i].intensity,sizeof(float));
+  	 float intensity = cloud->points[i].intensity/float(3500.0);
+  	 bin_file.write((char*)&cloud->points[i].x,3*sizeof(float)); 
+    bin_file.write((char*)&intensity,sizeof(float));
     //cout<< 	cloud->points[i]<<endl;
   }
   	
