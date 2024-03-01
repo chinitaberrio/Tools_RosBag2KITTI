@@ -49,6 +49,12 @@ The points cloud is further converted from .pcd to .bin.
 	```
 	> The results are saved in [bin](/pcd2bin/bin).
 
+### (4) Rename the bin files
+Change the directory in the kitti_naming.sh to where the .bin are stored and run:
+```bash
+	bash kitti_naming.sh
+	```
+
 ### (3) Create file list
 
 Generate the list of the subset files for training or validation, e.g. train.txt and val.txt in KITTI.
