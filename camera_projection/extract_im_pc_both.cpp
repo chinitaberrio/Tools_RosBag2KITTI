@@ -80,7 +80,10 @@ void callback(const sensor_msgs::PointCloud2::ConstPtr point_cloud,
     }
   
 
-    std::string filename_0 = save_images_directory + "/" + camera + std::to_string(c_info->header.stamp.sec) +"."+std::to_string(c_info->header.stamp.nsec) + ".png" ;
+    std::string s1 = std::to_string(c_info->header.stamp.nsec);
+    unsigned int number_of_zeros1 = 9 - s1.length(); 
+    s1.insert(0, number_of_zeros1, '0');
+    std::string filename_0 = save_images_directory + "/" + camera + std::to_string(c_info->header.stamp.sec) +"."+ s1 + ".png" ;
     cv::imwrite(filename_0, image);
 
     std::string s = std::to_string(point_cloud->header.stamp.nsec);
